@@ -5,26 +5,27 @@ import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@TableName("sys_user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysUser {
+public class SysRole {
 
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    @TableField("username")
-    private String username;
+    @TableField("name")
+    private String name;
 
-    @TableField("password")
-    private String password;
+    @TableField("code")
+    private String code;
+
+    @TableField("description")
+    private String description;
 
     @TableField("is_valid")
     private Boolean isValid;
