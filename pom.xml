@@ -24,7 +24,6 @@
 
         <spring-boot.version>3.2.11</spring-boot.version>
         <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
-        <flyway.version>9.22.0</flyway.version>
     </properties>
 
     <dependencyManagement>

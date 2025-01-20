@@ -12,22 +12,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@TableName("sys_user")
+@TableName("sys_permission")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysUser implements Serializable {
+public class SysPermission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @TableField(value = "username")
-    private String username;
+    @TableField(value = "name")
+    private String name;
 
-    @TableField(value = "password")
-    private String password;
+    @TableField(value = "code")
+    private String code;
+
+    @TableField(value = "description")
+    private String description;
 
     @TableField(value = "is_valid")
     private Byte isValid;

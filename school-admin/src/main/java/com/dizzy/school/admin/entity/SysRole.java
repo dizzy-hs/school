@@ -1,5 +1,6 @@
 package com.dizzy.school.admin.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -13,29 +14,31 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysRole {
+public class SysRole implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    @TableField("name")
+    @TableField(value = "name")
     private String name;
 
-    @TableField("code")
+    @TableField(value = "code")
     private String code;
 
-    @TableField("description")
+    @TableField(value = "description")
     private String description;
 
-    @TableField("is_valid")
-    private Boolean isValid;
+    @TableField(value = "is_valid")
+    private Byte isValid;
 
-    @TableField("created_at")
+    @TableField(value = "created_at")
     private LocalDateTime createdAt;
 
-    @TableField("updated_at")
+    @TableField(value = "updated_at")
     private LocalDateTime updatedAt;
 
-    @TableField("is_deleted")
-    private Boolean isDeleted;
+    @TableField(value = "is_deleted")
+    private Byte isDeleted;
 }

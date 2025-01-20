@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlite:school.db
-    username:
-    password:
-    driver-class-name: org.sqlite.JDBC
+    url: jdbc:mysql://localhost:3306/school?useSSL=false&serverTimezone=UTC
+    username: school
+    password: school123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
