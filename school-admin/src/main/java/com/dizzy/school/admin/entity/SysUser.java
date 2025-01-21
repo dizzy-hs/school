@@ -3,6 +3,7 @@ package com.dizzy.school.admin.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -32,12 +33,12 @@ public class SysUser implements Serializable {
     @TableField(value = "is_valid")
     private Byte isValid;
 
-    @TableField(value = "created_at")
+    @TableField(value = "created_at", fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
-    @TableField(value = "updated_at")
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 
-    @TableField(value = "is_deleted")
+    @TableField(value = "is_deleted", fill = FieldFill.INSERT)
     private Byte isDeleted;
 }

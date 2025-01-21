@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SysPermissionInsertRequest {
 
-    @NotBlank(message = "权限名称不能为空")
+    @NotBlank(message = "权限名称不能为空字符串")
     @Size(max = 100, message = "权限名称长度不能超过100")
     private String name;
 
-    @NotBlank(message = "权限代码不能为空")
+    @NotBlank(message = "权限代码不能为空字符串")
     @Size(max = 100, message = "权限代码长度不能超过100")
     private String code;
 
@@ -26,6 +26,7 @@ public class SysPermissionInsertRequest {
     @Size(max = 255, message = "权限描述长度不能超过255")
     private String description;
 
+    @NotNull(message = "权限类型不能为空")
     @Min(value = 0, message = "是否有效必须为0或1")
     @Max(value = 1, message = "是否有效必须为0或1")
     private Byte isValid;

@@ -14,13 +14,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SysRoleInsertRequest {
 
-    @NotBlank(message = "角色名称不能为空")
+    @NotBlank(message = "角色名称不能为空字符串")
     @Size(max = 100, message = "角色名称长度不能超过100")
     private String name;
 
+    @NotBlank(message = "角色编码不能为空字符串")
     @Size(max = 100, message = "角色编码长度不能超过100")
     private String code;
 
+    @NotNull(message = "角色描述不能为空")
     @Size(max = 255, message = "角色描述长度不能超过200")
     private String description;
 
