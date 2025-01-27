@@ -19,15 +19,15 @@ import com.dizzy.school.admin.service.ISysUserRoleMappingService;
 public class SysUserRoleMappingServiceImpl extends ServiceImpl<SysUserRoleMappingMapper, SysUserRoleMapping> implements ISysUserRoleMappingService {
 
     @Override
-    public IPage<SysUser> selectUserPageByRoleId(Page<SysUser> pagination, SysUserPageRequest request, Long roleId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selectUserPageByRoleId'");
+    public IPage<SysUser> selectUserPageByRoleId(SysUserPageRequest request, Long roleId) {
+        Page<SysUser> pagination = new Page<>(request.getPage(), request.getSize());
+        return this.baseMapper.selectUserPageByRoleId(pagination, request, roleId);
     }
 
     @Override
-    public IPage<SysRole> selectRolePageByUserId(Page<SysRole> pagination, SysRolePageRequest request, Long userId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selectRolePageByUserId'");
+    public IPage<SysRole> selectRolePageByUserId(SysRolePageRequest request, Long userId) {
+        Page<SysRole> pagination = new Page<>(request.getPage(), request.getSize());
+        return this.baseMapper.selectRolePageByUserId(pagination, request, userId);
     }
     
 }

@@ -7,5 +7,4 @@ import com.dizzy.school.admin.entity.SysUser;
 
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUser> {
-    
 }

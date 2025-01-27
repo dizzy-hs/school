@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dizzy.school.admin.dto.request.insert.SysUserInsertRequest;
 import com.dizzy.school.admin.dto.request.page.SysRolePageRequest;
 import com.dizzy.school.admin.dto.request.page.SysUserPageRequest;
 import com.dizzy.school.admin.dto.request.update.SysUserUpdateRequest;
-import com.dizzy.school.admin.entity.SysRole;
-import com.dizzy.school.admin.entity.SysUser;
 import com.dizzy.school.admin.service.ISysUserRoleMappingService;
 import com.dizzy.school.admin.service.ISysUserService;
 import com.dizzy.school.admin.utils.Result;
@@ -60,8 +57,7 @@ public class SysUserController {
 
     @GetMapping("")
     public Result selectUserPage(@ModelAttribute @Valid SysUserPageRequest request) {
-        Page<SysUser> pageable = new Page<>(request.getPage(), request.getSize());
-        return Result.success(sysUserService.selectUserPage(pageable, request));
+        return Result.success(sysUserService.selectUserPage(request));
     }
 
     @GetMapping("/{id}/roles")
@@ -69,8 +65,7 @@ public class SysUserController {
         @PathVariable("id") Long id,
         @ModelAttribute @Valid SysRolePageRequest request
     ) {
-        Page<SysRole> pagination = new Page<>(request.getPage(), request.getSize());
-        return Result.success(sysUserRoleMappingService.selectRolePageByUserId(pagination, request, id));
+        return Result.success(sysUserRoleMappingService.selectRolePageByUserId(request, id));
     }
 
 }

@@ -7,5 +7,4 @@ import com.dizzy.school.admin.entity.SysPermission;
 
 @Mapper
 public interface SysPermissionMapper extends BaseMapper<SysPermission> {
-    
 }

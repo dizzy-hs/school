@@ -1,8 +1,10 @@
 package com.dizzy.school.admin.service.impl;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,26 +21,28 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
 
     @Override
     public Integer insertPermission(SysPermissionInsertRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertPermission'");
+        SysPermission sysPermission = new SysPermission();
+        BeanUtils.copyProperties(request, sysPermission);
+        return baseMapper.insert(sysPermission);
     }
 
     @Override
     public Integer deletePermission(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletePermission'");
+        return baseMapper.deleteById(id);
     }
 
     @Override
     public Integer updatePermission(SysPermissionUpdateRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePermission'");
+        SysPermission sysPermission = new SysPermission();
+        BeanUtils.copyProperties(request, sysPermission);
+        return baseMapper.updateById(sysPermission);
     }
 
     @Override
-    public IPage<SysPermission> selectPermissionPage(Page<SysPermission> pagination, SysPermissionPageRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selectPermissionPage'");
+    public IPage<SysPermission> selectPermissionPage(SysPermissionPageRequest request) {
+        Page<SysPermission> pagination = new Page<>(request.getPage(), request.getPage());
+        LambdaQueryWrapper<SysPermission> queryWrapper = new LambdaQueryWrapper<>();
+        return baseMapper.selectPage(pagination, queryWrapper);
     }
     
 }

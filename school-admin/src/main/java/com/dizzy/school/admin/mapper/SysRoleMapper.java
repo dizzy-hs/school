@@ -7,5 +7,4 @@ import com.dizzy.school.admin.entity.SysRole;
 
 @Mapper
 public interface SysRoleMapper extends BaseMapper<SysRole> {
-    
 }

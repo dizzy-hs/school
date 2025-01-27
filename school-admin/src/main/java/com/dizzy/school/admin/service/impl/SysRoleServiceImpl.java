@@ -1,8 +1,10 @@
 package com.dizzy.school.admin.service.impl;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,26 +21,28 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     @Override
     public Integer insertRole(SysRoleInsertRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertRole'");
+        SysRole sysRole = new SysRole();
+        BeanUtils.copyProperties(request, sysRole);
+        return this.baseMapper.insert(sysRole);
     }
 
     @Override
     public Integer deleteRole(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteRole'");
+        return this.baseMapper.deleteById(id);
     }
 
     @Override
     public Integer updateRole(SysRoleUpdateRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateRole'");
+        SysRole sysRole = new SysRole();
+        BeanUtils.copyProperties(request, sysRole);
+        return this.baseMapper.updateById(sysRole);
     }
 
     @Override
-    public IPage<SysRole> selectRolePage(Page<SysRole> pagination, SysRolePageRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selectRolePage'");
+    public IPage<SysRole> selectRolePage(SysRolePageRequest request) {
+        Page<SysRole> page = new Page<>(request.getPage(), request.getPage());
+        LambdaQueryWrapper<SysRole> queryWrapper = new LambdaQueryWrapper<>();
+        return this.baseMapper.selectPage(page, queryWrapper);
     }
     
 }

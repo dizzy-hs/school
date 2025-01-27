@@ -8,9 +8,8 @@ import com.dizzy.school.admin.dto.request.page.SysRolePageRequest;
 import com.dizzy.school.admin.entity.SysRole;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 public interface ISysUserRoleMappingService extends IService<SysUserRoleMapping> {
-    IPage<SysUser> selectUserPageByRoleId(Page<SysUser> pagination, SysUserPageRequest request, Long roleId);
-    IPage<SysRole> selectRolePageByUserId(Page<SysRole> pagination, SysRolePageRequest request, Long userId);
+    IPage<SysUser> selectUserPageByRoleId(SysUserPageRequest request, Long roleId);
+    IPage<SysRole> selectRolePageByUserId(SysRolePageRequest request, Long userId);
 }

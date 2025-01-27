@@ -1,8 +1,10 @@
 package com.dizzy.school.admin.service.impl;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,26 +21,27 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public Integer insertUser(SysUserInsertRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertUser'");
+        SysUser user = new SysUser();
+        BeanUtils.copyProperties(request, user);
+        return this.baseMapper.insert(user);
     }
 
     @Override
     public Integer deleteUser(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
+        return this.baseMapper.deleteById(id);
     }
 
     @Override
     public Integer updateUser(SysUserUpdateRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateUser'");
+        SysUser user = new SysUser();
+        BeanUtils.copyProperties(request, user);
+        return this.baseMapper.updateById(user);
     }
 
     @Override
-    public IPage<SysUser> selectUserPage(Page<SysUser> pagination, SysUserPageRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'selectUserPage'");
+    public IPage<SysUser> selectUserPage(SysUserPageRequest request) {
+        Page<SysUser> pageable = new Page<>(request.getPage(), request.getSize());
+        LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
+        return this.baseMapper.selectPage(pageable, queryWrapper);
     }
-    
 }
