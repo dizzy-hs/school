@@ -4,12 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.dizzy</groupId>
-        <artifactId>school</artifactId>
+        <groupId>com.dizzy.school</groupId>
+        <artifactId>school-parent</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.dizzy.admin</groupId>
     <artifactId>school-admin</artifactId>
     <name>school-admin</name>
     <packaging>jar</packaging>
