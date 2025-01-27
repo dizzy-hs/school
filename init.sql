@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` BIGINT PRIMARY NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` VARCHAR(100) NOT NULL COMMENT '角色名称',
-  `code` VARCHAR(50) NOT NULL COMMENT '角色编码',
+  `code` VARCHAR(100) NOT NULL COMMENT '角色编码',
   `description` VARCHAR(255) COMMENT '角色描述',
   `is_valid` TINYINT NOT NULL DEFAULT 1 COMMENT '是否有效; 1: 有效, 0: 无效',
   `created_at` DATETIME NOT NULL COMMENT '创建时间',
@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission` (
   `id` BIGINT PRIMARY NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` VARCHAR(100) NOT NULL COMMENT '权限名称',
-  `code` VARCHAR(50) NOT NULL COMMENT '权限编码',
+  `code` VARCHAR(100) NOT NULL COMMENT '权限编码',
   `description` VARCHAR(255) COMMENT '权限描述',
   `is_valid` TINYINT NOT NULL DEFAULT 1 COMMENT '是否有效; 1: 有效, 0: 无效',
   `created_at` DATETIME NOT NULL COMMENT '创建时间',

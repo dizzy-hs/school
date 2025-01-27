@@ -10,7 +10,7 @@ import com.dizzy.school.admin.dto.request.update.SysUserUpdateRequest;
 
 public interface ISysUserService extends IService<SysUser> {
     Integer insertUser(SysUserInsertRequest request);
-    Integer deleteUser(Integer id);
+    Integer deleteUser(Long id);
     Integer updateUser(SysUserUpdateRequest request);
     IPage<SysUser> selectUserPage(Page<SysUser> pagination, SysUserPageRequest request);
 }

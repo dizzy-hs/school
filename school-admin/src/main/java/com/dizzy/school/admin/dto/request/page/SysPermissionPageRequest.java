@@ -35,4 +35,7 @@ public class SysPermissionPageRequest {
     @Min(value = 0, message = "是否删除值必须为0或1")
     @Max(value = 1, message = "是否删除值必须为0或1")
     private Byte isDeleted;
+
+    private Integer page;
+    private Integer size;
 }

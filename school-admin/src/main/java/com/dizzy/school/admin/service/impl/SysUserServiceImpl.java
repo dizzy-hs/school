@@ -1,5 +1,6 @@
 package com.dizzy.school.admin.service.impl;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -12,6 +13,7 @@ import com.dizzy.school.admin.entity.SysUser;
 import com.dizzy.school.admin.mapper.SysUserMapper;
 import com.dizzy.school.admin.service.ISysUserService;
 
+@Primary
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
@@ -22,7 +24,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     }
 
     @Override
-    public Integer deleteUser(Integer id) {
+    public Integer deleteUser(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
     }
